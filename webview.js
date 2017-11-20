@@ -5,16 +5,16 @@ module.exports = Franz => {
     let directMessages = 0;
     let indirectMessages = 0;
 
-    //const notificationElement = document.getElementsByClassName("unread-count");
-    const notificationElement = document.getElementsByClassName("yj-notifications-indicator-count");
-    const newMessagesElement = document.getElementsByClassName("yj-thread-list--new-message-text");
+    //const notificationElement = document.querySelector(".yj-nav-menu--primary-actions-inbox-link .unread-count");
+    const notificationElement = document.querySelector(".yj-notifications-indicator-count");
+    const newMessagesElement = document.querySelector(".yj-thread-list--new-messages-notice:not(.is-hidden) .yj-thread-list--new-message-text");
 
     if (notificationElement.length) {
-      directMessages = parseInt(notificationElement[0].innerHTML, 10);
+      directMessages = parseInt(notificationElement.innerHTML, 10);
     }
 
     if (newMessagesElement.length) {
-      indirectMessages = parseInt(newMessagesElement[0].innerHTML.match(/\d+/)[0], 10);
+      indirectMessages = parseInt(newMessagesElement.innerHTML.match(/\d+/)[0], 10);
     }
 
     Franz.setBadge(directMessages, indirectMessages);
