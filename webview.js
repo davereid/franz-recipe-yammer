@@ -9,11 +9,11 @@ module.exports = Franz => {
     const notificationElement = document.querySelector(".yj-notifications-indicator-count");
     const newMessagesElement = document.querySelector(".yj-thread-list--new-messages-notice:not(.is-hidden) .yj-thread-list--new-message-text");
 
-    if (notificationElement.length) {
+    if (notificationElement && notificationElement.innerHTML.length) {
       directMessages = parseInt(notificationElement.innerHTML, 10);
     }
 
-    if (newMessagesElement.length) {
+    if (newMessagesElement && newMessagesElement.innerHTML.length) {
       indirectMessages = parseInt(newMessagesElement.innerHTML.match(/\d+/)[0], 10);
     }
 
